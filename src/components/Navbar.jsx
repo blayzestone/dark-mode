@@ -3,7 +3,7 @@ import useDarkMode from '../hooks/useDarkMode';
 import { api_ids } from '../constants';
 import Dropdown from './Dropdown';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [darkMode, setDarkMode] = useDarkMode();
 
   const toggleMode = e => {
@@ -16,7 +16,7 @@ const Navbar = () => {
       <div
         style={{ display: "flex", alignItems: "center" }}
       >
-      <Dropdown darkMode={darkMode} ids={api_ids}/>
+      <Dropdown darkMode={darkMode} ids={api_ids} getCoinDetails={props.getCoinDetails}/>
       <div 
         className="dark-mode__toggle"
         style={{ marginLeft: "2rem" }}

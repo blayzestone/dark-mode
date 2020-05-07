@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-const Dropdown = ({ darkMode, ids, }) => {
+const Dropdown = ({ darkMode, ids, getCoinDetails }) => {
   const [dropdownOpen, setOpen] = useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
@@ -13,7 +13,8 @@ const Dropdown = ({ darkMode, ids, }) => {
     </DropdownToggle>
       <DropdownMenu className={ darkMode ? "dark-mode" : "" }>
         {ids.map((id, index) => (
-          <DropdownItem 
+          <DropdownItem
+            onClick={() => getCoinDetails(id)} 
             key={index} 
             className={ darkMode ? "dark-mode" : "" }
             style={{ fontSize: "1.2rem", padding: "6px" }}
